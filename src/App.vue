@@ -1,32 +1,59 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <a-layout>
+      <a-layout-header :style="{ background: '#23232e', padding: '0 24px', borderBottom: '1px solid rgba(0, 0, 0, 1)' }">
+
+      <a-row>
+
+        <router-link to="/console/observable">
+          <a-button type="primary">可观察对象</a-button>
+        </router-link>
+
+        <router-link to="/console/operators">
+          <a-button type="primary">操作符</a-button>
+        </router-link>
+
+      </a-row>
+
+      </a-layout-header>
+    </a-layout>
     <router-view/>
   </div>
 </template>
 
 <style lang="less">
 #app {
+  width: 100vw;
+  min-height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: #23232e;
 }
 
-#nav {
-  padding: 30px;
+a + a {
+  margin-left: 24px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+/*控制整个滚动条*/
+::-webkit-scrollbar {
+  background-color: rgb(35, 35, 46);
+  width: 6px;
+  height: 6px;
+  background-clip: padding-box;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+/*滚动条两端方向按钮*/
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+/*滚动条中间滑动部分*/
+::-webkit-scrollbar-thumb {
+  background-color: #b9b9bd;
+  border-radius: 5px;
 }
 </style>

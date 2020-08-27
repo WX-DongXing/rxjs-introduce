@@ -54,7 +54,10 @@
 
 <script>
 import { from, Subject, iif, of, interval, forkJoin, timer, fromEvent } from 'rxjs'
-import { map, switchMap, tap, take, mergeAll, mergeMap, throttleTime, debounceTime, pluck } from 'rxjs/operators'
+import {
+  map, switchMap, tap, take, mergeAll, mergeMap,
+  throttleTime, debounceTime, pluck, takeWhile
+} from 'rxjs/operators'
 import CodePanel from '@/components/CodePanel'
 import Logger from '@/subject'
 import Log from '@/model/log'
@@ -196,6 +199,7 @@ export default {
 
     fromEvent(this.$refs.search.$el, 'keyup')
       .pipe(
+        takeWhile(() => this.isActive),
         debounceTime(500),
         pluck('target', 'value'),
         map(content => new Log({ sign: 'debounceTime', type: 'danger', content }))
@@ -230,6 +234,9 @@ export default {
           this.logger.emit(log)
         }
       })
+  },
+  beforeDestroy () {
+    this.isActive = false
   }
 }
 </script>

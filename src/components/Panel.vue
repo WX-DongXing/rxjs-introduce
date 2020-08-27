@@ -27,6 +27,7 @@ export default {
 <style scoped lang="less">
 .panel {
   background: #3b3b47;
+  padding-bottom: 16px;
 
   &__bar {
     flex: none;

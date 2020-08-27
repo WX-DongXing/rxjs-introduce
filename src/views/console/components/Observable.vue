@@ -198,7 +198,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .observable {
   height: calc(100vh - 80px);
   color: rgba(255, 255, 255, 0.85);

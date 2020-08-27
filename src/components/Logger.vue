@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { takeWhile } from 'rxjs/operators'
 import Logger from '@/subject'
 
 const ColorMap = new Map([
@@ -29,6 +30,7 @@ const ColorMap = new Map([
 export default {
   name: 'Logger',
   data: () => ({
+    isActive: true,
     logger: new Logger(),
     colorMap: ColorMap,
     logs: []
@@ -40,12 +42,18 @@ export default {
   },
   mounted () {
     this.logger.obs.asObservable()
+      .pipe(
+        takeWhile(() => this.isActive)
+      )
       .subscribe(log => {
         this.logs.push(log)
         setTimeout(() => {
           this.$refs.content.scrollTop = this.$refs.content.scrollHeight
         }, 0)
       })
+  },
+  beforeDestroy () {
+    this.isActive = false
   }
 }
 </script>

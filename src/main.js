@@ -6,7 +6,7 @@ import 'prismjs'
 import 'ant-design-vue/dist/antd.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/components/prism-javascript'
-import { Button, Layout, PageHeader, Row, Col, Icon, Tag, Input } from 'ant-design-vue'
+import { Button, Layout, PageHeader, Row, Col, Icon, Tag, Input, Result } from 'ant-design-vue'
 import './request'
 
 Vue.use(Button)
@@ -17,6 +17,7 @@ Vue.use(Col)
 Vue.use(Icon)
 Vue.use(Tag)
 Vue.use(Input)
+Vue.use(Result)
 
 Vue.config.productionTip = false
 

@@ -13,6 +13,7 @@
 
 <script>
 import Logger from '@/components/Logger'
+
 export default {
   name: 'Console',
   components: {

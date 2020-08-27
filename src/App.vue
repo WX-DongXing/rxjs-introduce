@@ -6,11 +6,15 @@
       <a-row>
 
         <router-link to="/console/observable">
-          <a-button type="primary">可观察对象</a-button>
+          <a-button type="primary" ghost>可观察对象</a-button>
         </router-link>
 
         <router-link to="/console/operators">
-          <a-button type="primary">操作符</a-button>
+          <a-button type="primary" ghost>操作符</a-button>
+        </router-link>
+
+        <router-link to="/playground/draggable">
+          <a-button type="primary" ghost>拖拽</a-button>
         </router-link>
 
       </a-row>

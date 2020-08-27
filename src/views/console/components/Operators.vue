@@ -116,11 +116,13 @@ export default {
     mergeMapCode: ` import { of, interval } from 'rxjs';
   import { mergeMap, take, map } from 'rxjs/operators';
 
-  of('a', 'b', 'c').pipe(
+  of('a', 'b', 'c')
+  .pipe(
       mergeMap(str => interval(1000).pipe(
         take(3),
         map(value => str + value)
       ))
+    )
     `,
     forkJoinCode: ` import { forkJoin, of, timer } from 'rxjs';
 
